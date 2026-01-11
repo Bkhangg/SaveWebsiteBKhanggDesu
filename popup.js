@@ -248,3 +248,56 @@ document.getElementById("importData").addEventListener("change", (e) => {
 
   reader.readAsText(file);
 });
+
+// Gợi ý TAG
+const tagsInput = document.getElementById("tags");
+const tagSuggestions = document.getElementById("tagSuggestions");
+
+function getAllTags() {
+  const set = new Set();
+  bookmarks.forEach((b) => b.tags.forEach((t) => set.add(t)));
+  return [...set];
+}
+
+tagsInput.addEventListener("input", () => {
+  const value = tagsInput.value;
+  const parts = value.split(",");
+  const last = parts[parts.length - 1].trim().toLowerCase();
+
+  if (!last) {
+    tagSuggestions.style.display = "none";
+    return;
+  }
+
+  const matches = getAllTags().filter((t) => t.toLowerCase().includes(last));
+
+  tagSuggestions.innerHTML = "";
+  matches.forEach((tag) => {
+    const div = document.createElement("div");
+    div.textContent = tag;
+
+    div.onclick = () => {
+      parts[parts.length - 1] = " " + tag;
+      tagsInput.value = parts.join(",").replace(/^ /, "");
+      tagSuggestions.style.display = "none";
+    };
+
+    tagSuggestions.appendChild(div);
+  });
+
+  tagSuggestions.style.display = matches.length ? "block" : "none";
+});
+
+document.addEventListener("click", (e) => {
+  if (!tagSuggestions.contains(e.target) && e.target !== tagsInput) {
+    tagSuggestions.style.display = "none";
+  }
+});
+
+const tags = document
+  .getElementById("tags")
+  .value.split(",")
+  .map((t) => t.trim())
+  .filter(Boolean);
+
+const uniqueTags = [...new Set(tags)];

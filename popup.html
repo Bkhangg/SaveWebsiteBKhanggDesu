@@ -10,11 +10,22 @@
     <button id="openNote">📖 Xem hướng dẫn sử dụng ở đây</button>
 
     <input id="note" placeholder="Ghi chú...(Bỏ trống cũng được)" />
-    <input id="tags" placeholder="Tags: react, js" />
+
+    <!-- Nhập và Gợi ý tag -->
+    <div class="title_input">
+      Thêm: nếu muốn lưu web trùng tag thì nhập chữ cái đầu tag đã lưu
+    </div>
+    <input
+      id="tags"
+      placeholder="Tags: Nhập tag và lưu trùng tag"
+      autocomplete="off"
+    />
+    <div id="tagSuggestions" class="tag-suggestions"></div>
+
     <button id="save">Lưu website</button>
 
     <select id="tagFilter">
-      <option value="">-- Lọc theo tag --</option>
+      <option value="">-- Lọc theo tag hoặc show tất cả --</option>
     </select>
 
     <input id="search" placeholder="Tìm kiếm..." />
@@ -22,7 +33,6 @@
     <!-- Backup -->
     <div class="backup">
       <button id="exportData">Export dữ liệu</button>
-
       <label class="import-btn">
         <div
           style="

@@ -6,6 +6,12 @@ body {
   border-radius: 10px;
 }
 
+.title_input {
+  margin: 1px;
+  margin-left: 10px;
+  font-family: "Courier New", Courier, monospace;
+}
+
 h3 {
   text-align: center;
   color: white;
@@ -149,4 +155,23 @@ import-btn:hover {
 
 .backup {
   margin-bottom: 10px;
+}
+
+/* Gợi ý tag */
+.tag-suggestions {
+  border: 1px solid #ddd;
+  max-height: 120px;
+  overflow-y: auto;
+  display: none;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.tag-suggestions div {
+  padding: 6px;
+  cursor: pointer;
+}
+
+.tag-suggestions div:hover {
+  background: #f0f0f0;
 }
