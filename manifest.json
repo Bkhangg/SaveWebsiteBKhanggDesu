@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Advanced Bookmark",
+  "version": "1.0",
+  "description": "Bookmark có note, tag, tìm kiếm, phân trang",
+  "permissions": ["tabs", "storage", "windows"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

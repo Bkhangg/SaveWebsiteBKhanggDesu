@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bookmark</title>
+    <link rel="stylesheet" href="style_popup.css" />
+  </head>
+  <body>
+    <h3>📌 Bookmark</h3>
+    <button id="openNote">📖 Xem hướng dẫn sử dụng ở đây</button>
+
+    <input id="note" placeholder="Ghi chú...(Bỏ trống cũng được)" />
+    <input id="tags" placeholder="Tags: react, js" />
+    <button id="save">Lưu website</button>
+
+    <select id="tagFilter">
+      <option value="">-- Lọc theo tag --</option>
+    </select>
+
+    <input id="search" placeholder="Tìm kiếm..." />
+
+    <!-- Backup -->
+    <div class="backup">
+      <button id="exportData">Export dữ liệu</button>
+
+      <label class="import-btn">
+        <div
+          style="
+            font-family: 'Courier New', Courier, monospace;
+            text-decoration: underline;
+          "
+        >
+          Import dữ liệu
+        </div>
+        <input type="file" id="importData" accept=".json" hidden />
+      </label>
+    </div>
+
+    <div id="list"></div>
+
+    <div id="pagination"></div>
+
+    <script src="popup.js"></script>
+    <script>
+      document.getElementById("openNoteBtn").addEventListener("click", () => {
+        window.open(
+          "note.html",
+          "notePopup",
+          "width=500,height=600,scrollbars=yes"
+        );
+      });
+    </script>
+  </body>
+</html>

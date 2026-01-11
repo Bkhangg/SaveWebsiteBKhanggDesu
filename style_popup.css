@@ -1,0 +1,152 @@
+body {
+  width: 330px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  background-color: rgb(187, 187, 236);
+  border-radius: 10px;
+}
+
+h3 {
+  text-align: center;
+  color: white;
+}
+
+input {
+  margin-bottom: 6px;
+  padding: 6px;
+  width: 300px;
+  border-radius: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+select {
+  margin-bottom: 6px;
+  padding: 6px;
+  width: 315px;
+  border-radius: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+button {
+  margin-bottom: 6px;
+  background-color: rgb(98, 98, 225);
+  color: white;
+  border: none;
+  padding: 6px;
+  width: 315px;
+  border-radius: 2px;
+  border-radius: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(59, 59, 199);
+  color: rgb(255, 255, 255);
+}
+
+.item {
+  padding: 2px;
+  margin-bottom: 6px;
+}
+
+.note {
+  font-style: italic;
+  margin: 4px 0;
+}
+
+.tag {
+  display: inline-block;
+  background: #eee;
+  padding: 2px 5px;
+  margin-right: 3px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+#pagination button {
+  width: auto;
+  margin: 2px;
+}
+
+/* Custom list */
+strong {
+  color: rgb(0, 0, 0);
+  width: 300px;
+  margin-bottom: 5px;
+}
+
+.tag {
+  border: none;
+  background-color: blue;
+  color: white;
+  padding: 5px;
+}
+
+.link_url {
+  width: 300px;
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.margin_bar {
+  margin-bottom: 6px;
+}
+.wrap_list {
+  width: 290px;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  background-color: white;
+}
+
+.BtnDelete {
+  margin-bottom: 6px;
+  background-color: rgb(235, 65, 65);
+  color: white;
+  border: none;
+  padding: 6px;
+  width: 315px;
+  border-radius: 2px;
+  border-radius: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  width: 200px;
+}
+
+.BtnDelete:hover {
+  background-color: rgb(200, 44, 44);
+  color: rgb(255, 255, 255);
+}
+
+/* Import, Export */
+.import_btn {
+  margin-bottom: 6px;
+  background-color: rgb(98, 98, 225);
+  color: white;
+  border: none;
+  padding: 6px;
+  width: 315px;
+  border-radius: 2px;
+  border-radius: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+import-btn {
+  cursor: pointer;
+}
+
+import-btn:hover {
+  background-color: rgb(59, 59, 199);
+  color: rgb(255, 255, 255);
+}
+
+.backup {
+  margin-bottom: 10px;
+}
