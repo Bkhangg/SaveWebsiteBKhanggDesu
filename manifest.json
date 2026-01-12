@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Advanced Bookmark",
+  "name": "Bookmark by BKhanggDesu",
   "version": "1.0",
   "description": "Bookmark có note, tag, tìm kiếm, phân trang",
   "permissions": ["tabs", "storage", "windows"],
