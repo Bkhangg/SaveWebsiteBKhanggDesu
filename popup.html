@@ -9,21 +9,23 @@
     <h3>📌 Bookmark</h3>
     <button id="openNote">📖 Xem hướng dẫn sử dụng ở đây</button>
 
-    <input id="note" placeholder="Ghi chú...(Bỏ trống cũng được)" />
+    <div id="editForm" class="form-wrapper">
+      <input id="note" placeholder="Ghi chú...(Bỏ trống cũng được)" />
 
-    <!-- Nhập và Gợi ý tag -->
-    <div class="title_input">
-      Thêm: nếu muốn lưu web trùng tag thì nhập chữ cái đầu để mở gợi ý tag đã
-      lưu
+      <!-- Nhập và Gợi ý tag -->
+      <div class="title_input">
+        Thêm: nếu muốn lưu web trùng tag thì nhập chữ cái đầu để mở gợi ý tag đã
+        lưu
+      </div>
+      <input
+        id="tags"
+        placeholder="Tags: Nhập tag và lưu trùng tag"
+        autocomplete="off"
+      />
+      <div id="tagSuggestions" class="tag-suggestions"></div>
+
+      <button id="save">Lưu website</button>
     </div>
-    <input
-      id="tags"
-      placeholder="Tags: Nhập tag và lưu trùng tag"
-      autocomplete="off"
-    />
-    <div id="tagSuggestions" class="tag-suggestions"></div>
-
-    <button id="save">Lưu website</button>
 
     <select id="tagFilter">
       <option value="">-- Lọc theo tag hoặc show tất cả --</option>

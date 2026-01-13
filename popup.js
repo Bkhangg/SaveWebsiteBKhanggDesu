@@ -7,6 +7,7 @@ const pagination = document.getElementById("pagination");
 const PAGE_SIZE = 5;
 let currentPage = 1;
 let bookmarks = [];
+let editingId = null;
 
 /* =====================
    INIT
@@ -31,16 +32,30 @@ saveBtn.addEventListener("click", () => {
       .map((t) => t.trim())
       .filter(Boolean);
 
-    const item = {
-      id: Date.now(),
-      title: tab.title,
-      url: tab.url,
-      note,
-      tags,
-      createdAt: Date.now(),
-    };
+    // 👉 NẾU ĐANG SỬA
+    if (editingId) {
+      const index = bookmarks.findIndex((b) => b.id === editingId);
+      if (index !== -1) {
+        bookmarks[index].note = note;
+        bookmarks[index].tags = tags;
+      }
 
-    bookmarks.push(item);
+      editingId = null;
+      saveBtn.textContent = "Lưu website";
+    }
+    // 👉 THÊM MỚI
+    else {
+      const item = {
+        id: Date.now(),
+        title: tab.title,
+        url: tab.url,
+        note,
+        tags,
+        createdAt: Date.now(),
+      };
+
+      bookmarks.push(item);
+    }
 
     chrome.storage.local.set({ bookmarks }, () => {
       document.getElementById("note").value = "";
@@ -107,6 +122,10 @@ function renderList(data) {
     const div = document.createElement("div");
     div.className = "item";
 
+    if (editingId === b.id) {
+      div.classList.add("editing");
+    }
+
     div.innerHTML = `
       <div class="wrap_list">
         <strong>${b.title}</strong><br />
@@ -129,19 +148,48 @@ function renderList(data) {
         </div>
 
         <div class="margin_bar"></div>
-        <button class="BtnDelete">Xoá</button>
+        <button class="BtnEdit"><img src="icons/edit.svg" class="icon" /> Sửa</button>
+        <button class="BtnDelete">🗑️ Xoá</button>
       </div>
     `;
 
+    // 👉 NÚT SỬA
+    div.querySelector(".BtnEdit").onclick = () => {
+      editingId = b.id;
+
+      document.getElementById("note").value = b.note || "";
+      document.getElementById("tags").value = b.tags.join(", ");
+
+      saveBtn.textContent = "Cập nhật";
+
+      // 👉 SCROLL LÊN TRÊN CÙNG
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      render();
+    };
+
+    // 👉 NÚT XOÁ
+    div.querySelector(".BtnDelete").onclick = () => {
+      bookmarks = bookmarks.filter((x) => x.id !== b.id);
+
+      editingId = null;
+      saveBtn.textContent = "Lưu website";
+
+      chrome.storage.local.set({ bookmarks }, () => {
+        renderTagFilter();
+        render();
+      });
+    };
+
+    // 👉 MỞ LINK
     div.querySelector("a").onclick = () => {
       chrome.tabs.create({ url: b.url });
     };
 
-    div.querySelector("button").onclick = () => {
-      bookmarks = bookmarks.filter((x) => x.id !== b.id);
-      chrome.storage.local.set({ bookmarks }, render);
-    };
-
+    // ✅ DÒNG QUAN TRỌNG BỊ THIẾU
     list.appendChild(div);
   });
 }
